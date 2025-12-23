@@ -1,22 +1,19 @@
 class Solution {
     public int majorityElement(int[] nums) {
-        int n=nums.length;
-        boolean visited[]= new boolean[nums.length];
-        
+        int n= nums.length;
         int result=0;
-        for(int i=0;i<nums.length;i++){
-            if(visited[i]){
-                continue;
+        Map<Integer,Integer> m= new HashMap<>();
+        for(int x:nums){
+            if(m.containsKey(x)){
+                m.put(x,m.get(x)+1);
+            }else{
+                m.put(x,1);
             }
-            int count=0;
-            for(int j=i;j<nums.length;j++){
-                if(nums[i]==nums[j]){
-                    count++;
-                }
-            }
-             if(count>n/2){
-               result=nums[i];
         }
+       for (Map.Entry<Integer, Integer> e : m.entrySet()) {
+            if (e.getValue() > n / 2) {
+                result = e.getKey();
+            }
         }
        
        return result; 
