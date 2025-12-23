@@ -1,0 +1,1 @@
+select m.name from Employee e join Employee m on e.managerId=m.id group by(e.managerId) Having count(e.managerId) >= 5 ;
