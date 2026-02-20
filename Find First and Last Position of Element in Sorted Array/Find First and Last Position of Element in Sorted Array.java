@@ -6,10 +6,10 @@ class Solution {
             int mid=i+j/2;
             if(nums[i]==target && nums[j]==target){
                 return new int[]{i,j};
-            } else if (target>nums[mid]) {
+            } else if (target>=nums[mid]) {
                 i=mid+1;
 
-            } else if (target<nums[mid]) {
+            } else if (target<=nums[mid]) {
                 j=mid-1;
             }
         }
