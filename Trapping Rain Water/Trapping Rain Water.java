@@ -1,15 +1,25 @@
 class Solution {
     public int trap(int[] height) {
         int i=0;
-        int j=i+1;
+        int j= height.length-1;
         int units=0;
-        while(i<=height.length-1 && j<=height.length-1){
-            if(height[i]>height[j]){
-                units=units+(height[i]-height[j]);
-                j++;
-            }else if(height[i] < height[j]){
+        int leftmax=0;
+        int rightmax=0;
+        while(i<=j ){
+            if(height[i]<=height[j]) {
+                if (height[i] >= leftmax) {
+                    leftmax = height[i];
+                } else {
+                    units = units + (leftmax - height[i]);
+                }
                 i++;
-                j++;
+            }else{
+                if(height[j]>= rightmax){
+                    rightmax=height[j];
+                }else {
+                    units=units+(rightmax-height[j]);
+                }
+                j--;
             }
         }
         return units;
