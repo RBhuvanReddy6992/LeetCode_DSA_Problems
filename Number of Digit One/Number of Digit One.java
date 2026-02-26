@@ -2,7 +2,7 @@ class Solution {
     int count=0;
     int result=0;
     public int countDigitOne(int n) {
-        if(n==0){
+        if(n<=0){
             return count;
         }
        int temp=n;
