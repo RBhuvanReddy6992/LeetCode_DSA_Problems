@@ -7,17 +7,17 @@ class Solution {
         m.put('L',50);
         m.put('C',100);
         m.put('D',500);
-        m.put('M',100);
-        int i=0;
+        m.put('M',1000);
         int sum=0;
-        while(i<s.length()){
-            if(i<s.length()-1 && m.get(s.charAt(i))< m.get(s.charAt(i+1))){
-                sum=sum+m.get(s.charAt(i+1))-m.get(s.charAt(i));
-                    i+=2;
-                
+        for(int i=s.length()-1;i>=0;i--){
+            if(i>0 && m.get(s.charAt(i))> m.get(s.charAt(i-1))){
+                sum=sum+(m.get(s.charAt(i))-m.get(s.charAt(i-1)));
+                i--;
+
             }else{
                 sum=sum+m.get(s.charAt(i));
             }
+
         }
         return sum;
     }
